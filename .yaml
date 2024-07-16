@@ -1,0 +1,7 @@
+dependencies:
+  - nodejs
+  - npm
+
+commands:
+  - npm install
+  - npm start
