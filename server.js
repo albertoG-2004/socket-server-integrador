@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
   console.log("New client connected");
 
   socket.on("bananas", (data) => {
-    // console.log(data);
+    console.log(data);
     const { date, time, color, classification } = data;
 
     io.emit("bananas", {
@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("monitorings", (data) => {
-    // console.log(data);
+    console.log(data);
     const { date, time, temperature, humidity, weight } = data;
 
     io.emit("monitorings", {
