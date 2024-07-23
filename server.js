@@ -44,9 +44,10 @@ io.on("connection", (socket) => {
 
   socket.on("monitorings", (data) => {
     console.log(data);
-    const { date, time, temperature, humidity, weight } = data;
+    const { box, date, time, temperature, humidity, weight } = data;
 
     io.emit("monitorings", {
+      box: box,
       date: date,
       time: time,
       temperature: temperature,
