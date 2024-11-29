@@ -27,11 +27,12 @@ const io = new Server(server, {
   },
 });
 
+
 io.on("connection", (socket) => {
-  console.log("New client connected");
+  signale.success(`New client connected: ${socket.id}`);
 
   socket.on("bananas", (data) => {
-    console.log(data);
+    signale.info("Data received on 'bananas':", data);
     const { date, time, color, classification } = data;
 
     io.emit("bananas", {
@@ -43,7 +44,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("monitorings", (data) => {
-    console.log(data);
+    signale.info("Data received on 'monitorings':", data);
     const { box, date, time, temperature, humidity, weight } = data;
 
     io.emit("monitorings", {
@@ -57,6 +58,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("Client disconnected");
+    signale.warn(`Client disconnected: ${socket.id}`);
   });
 });
